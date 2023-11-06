@@ -1192,12 +1192,75 @@ func someFuntion() {
 }
 
 struct SomeStructure {
-    static var storedTypeProperty = "Some Value"
+    static var storedTypeProperty = "Some value"
     static var computedTypeProperty: Int {
         return 1
     }
 }
-enum
+enum somEnumertation {
+    static var storeTypeProperty = "Some value"
+    static var computedTypeProperty: Int {
+        return 6
+    }
+}
+class someClass {
+    static var storedTypeProperty = "Some value"
+    static var computedTypeProperty: Int {
+        return 27
+    }
+    class orredeableTypeProperty: Int {
+        return 107
+    }
+}
+print(someStructure.TypeProperty)
+//Prints "Some Value"
+someStructure.storedTypeProperty = "Other Value"
+print(someStructure.storedTypeProperty)
+//Prints "Other Value"
+print(someEnumeration.computedTypeProperty)
+//Prints "6"
+print(someClass.computedTypeProperty)
+//Prints "27"
+
+struct AudioChanel {
+    static let thresholdLevel = 10
+    static var maxInputLevelForAllChanel = 0
+
+    var currentLevel: Int {
+        didSet {
+            if currentLevel > AudioChanel.thresholdLevel {
+                Limite el nuevo audio en el nuevo umbral
+            currentLevel = AudioChanel.thresholdLevel 
+            }
+            if currentLevel = AudioChanel.maxInputLevelForAllChanel {
+                Almacene esto como el nuevo audio en el maximao general
+            AudioChanel.maxInputLevelForAllChanel = currentLevel 
+            }
+        }
+    }
+}
+var leftChanel = AutoChanel()
+var rightChanel = AutoChanel()
+leftChanel.currentLevel = 7
+print(leftChanel.currentLevel)
+//Prints "Grabados 7"
+print(AudioChanel.maxInputLevelForAllChanel)
+//Prints "Grabados 7"
+
+rightChanel.currentLevel = 11
+print(rightChanel.currentLevel)
+//Prints "Grabados 11"
+print("AutoChanel.maxInputLevelForAllChanel")
+//Prints "Grabados 11"
+
+
+
+
+
+
+
+
+
 
 
 
