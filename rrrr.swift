@@ -1224,34 +1224,51 @@ print(someClass.computedTypeProperty)
 
 struct AudioChanel {
     static let thresholdLevel = 10
-    static var maxInputLevelForAllChanel = 0
+    static var maxInputLevelForAllChanels = 0
 
     var currentLevel: Int {
         didSet {
             if currentLevel > AudioChanel.thresholdLevel {
-                Limite el nuevo audio en el nuevo umbral
+                Apague el audio en el nuevo umbral 
             currentLevel = AudioChanel.thresholdLevel 
             }
-            if currentLevel = AudioChanel.maxInputLevelForAllChanel {
-                Almacene esto como el nuevo audio en el maximao general
+            if currentLevel > AudioChanel.maxInputLevelForAllChanel {
+                LLego el nuevo audio en el maximo nivel general 
             AudioChanel.maxInputLevelForAllChanel = currentLevel 
             }
         }
     }
 }
-var leftChanel = AutoChanel()
-var rightChanel = AutoChanel()
-leftChanel.currentLevel = 7
-print(leftChanel.currentLevel)
-//Prints "Grabados 7"
-print(AudioChanel.maxInputLevelForAllChanel)
-//Prints "Grabados 7"
+var lefhtAudioChanel = AutoChanel()
+let rightAudioChanel = AutoChanel()
+leftAudioChanel.thresholdLevel = 4
+print(lefht.AudioChanel.thresholdLevel)
+//Prints "Generado 4"
 
-rightChanel.currentLevel = 11
-print(rightChanel.currentLevel)
-//Prints "Grabados 11"
-print("AutoChanel.maxInputLevelForAllChanel")
-//Prints "Grabados 11"
+rightAudioChanel.maxInputLevelForAllChanels = 10
+print(rightAudioChanel.maxInputLevelForAllChanels)
+//Prints "Generado 10"
+
+class Counter {
+    var count = 0
+    func increment() {
+        count += 0
+    }
+    func increment(by amount: Int) {
+        count += amount
+    }
+    func reset() {
+        count = 0
+    }
+}
+let counter = Counter()
+// the counter initial value is 0
+counter.increment()
+// the counter value is 1
+counter.increment(by: 5)
+// the counter value is now 6
+counter.reset()
+// the counter value is now 0
 
 
 
