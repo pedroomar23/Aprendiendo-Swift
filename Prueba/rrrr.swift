@@ -1255,20 +1255,67 @@ class Counter {
         count += 0
     }
     func increment(by amount: Int) {
-        count += amount
+        count += amount 
     }
     func reset() {
         count = 0
     }
 }
-let counter = Counter()
+var counter = Counter()
+counter.increment()
 // the counter initial value is 0
 counter.increment()
-// the counter value is 1
-counter.increment(by: 5)
+// the counter value is now 1
+counter.incrementer(by: 5)
 // the counter value is now 6
 counter.reset()
 // the counter value is now 0
+
+func increment() {
+    self.count += 1
+}
+
+struct Point {
+    var x = 0.0, y = 0.0
+    func IsToTheRightOf(x deltaX: Double, y deltaY: Double) {
+        return self.x > x 
+    }
+}
+var somePoint = SomePoint(x: 1.0)
+if somePoint.IstoTheRightOf(4.0, 5.0) {
+    print("the point is to the right of the line x == 1.0")
+    //Prints "the point is to the right of (2.0, 3.0)"
+}
+
+struct Point {
+    var x = 0.0, y = 0.0
+    mutating func moveBy(x deltaX: Double, y deltaY: Double) {
+        x += deltaX
+        y += deltaY 
+    }
+}
+var somePoint = Point(x: 1.0, y: 1.0)
+if somePoint.moveBy(x: 2.0, y: 3.0) {
+    print("this point is to the right of \(somePoint.x), \(somepoint.y)")
+}
+//Prints "this point is to the right of (4.0, 5.0)"
+let fixedPoint = Point(3.0, 3.0)
+fixedPoint.moveBy(2.0, 3.0) 
+// Esto va a generar un error 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
