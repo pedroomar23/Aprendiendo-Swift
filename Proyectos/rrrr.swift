@@ -1277,15 +1277,15 @@ func increment() {
 
 struct Point {
     var x = 0.0, y = 0.0
-    func IsToTheRightOf(x deltaX: Double, y deltaY: Double) {
+    func IsToTHeRightOf(x deltaX: Double, y deltaY: Double) {
         return self.x > x 
     }
 }
-var somePoint = SomePoint(x: 1.0)
-if somePoint.IstoTheRightOf(4.0, 5.0) {
+let somePoint = Point(x: 1.0)
+if somePoint.IsToTheRightOf(x: 1.0, y: 1.0) {
     print("the point is to the right of the line x == 1.0")
-    //Prints "the point is to the right of (2.0, 3.0)"
 }
+//Prints "the point is to the right of line 1.0"
 
 struct Point {
     var x = 0.0, y = 0.0
@@ -1296,13 +1296,76 @@ struct Point {
 }
 var somePoint = Point(x: 1.0, y: 1.0)
 if somePoint.moveBy(x: 2.0, y: 3.0) {
-    print("this point is to the right of \(somePoint.x), \(somepoint.y)")
+    print("the point is to the right of \(somePoint.x), \(somePoint.y)")
 }
-//Prints "this point is to the right of (4.0, 5.0)"
-let fixedPoint = Point(3.0, 3.0)
-fixedPoint.moveBy(2.0, 3.0) 
-// Esto va a generar un error 
+//Prints "the point is to the right of (4.0, 5.0)"
+let fixedPoint = Point(x: 1.0, y: 1.0)
+fixedPoinr.moveBy(x: 2.0, y: 3.0)
+// Esto infromara un error
 
+struct Point {
+    var x = 0.0, y = 0.0
+    mutating func moveBy(x deltaX: Double, y deltaY: Double) {
+        self = Point(x: x + deltaX, y: y + deltaY)
+    }
+}
+enum TriStateSwitch {
+    case off, heigh, low
+    mutating func next() {
+        switch self {
+            case .off:
+                self = .heigh
+            case .heigh:
+                self = .low 
+            case .low:
+                self = .off 
+        }
+    }
+}
+var ovenLight = TriStateSwitch()
+ovenLight.next()
+// Ahora ovenLight es igual a .heigh 
+ovenLight.next()
+// Ahora ovenLight es igual a .off 
+
+class SomeClass {
+    class func someTypeMethod {
+        Aqui va el metodo 
+    }
+}
+
+struct LevelTraker {
+    static var heighestlockedLevel = 1
+    static var currentLevel = 1
+
+    static func unlock(_ level: Int) -> Bool {
+        if level > heighestlockedLevel { heighestlockedLevel = level }
+    }
+    static func isUnlocked(_ level: Int) -> Bool {
+        return level <= heighestlockedLevel 
+    }
+
+    @descardableResult
+    mutating func advance(to level: Int) -> Bool {
+        if LevelBraker.isUnlocked(level) {
+            currentLevel = level 
+            return true 
+        } else {
+            return false 
+        }
+    }
+}
+class Player {
+    var tracker = LevelTracker()
+    let playername: String 
+    func complete(level: Int) {
+        LevelTracker.Unlock(level + 1)
+        tracker.advance(a: level + 1)
+    }
+    init(playerName: String) {
+        playerName = Name 
+    }
+}
 
 
 
