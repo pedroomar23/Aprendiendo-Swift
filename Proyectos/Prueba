@@ -1,1 +1,37 @@
+class Counter {
+    var count = 0
+    func increment() {
+        count += 0
+    }
+    func increment(by amount: Int) {
+        count += amount 
+    }
+    func reset() {
+        count = 0
+    }
+}
+var counter = Counter()
+counter.increment()
+// the counter initial value is 0
+counter.increment()
+// the counter value is now 1
+counter.incrementer(by: 5)
+// the counter value is now 6
+counter.reset()
+// the counter value is now 0
 
+func increment() {
+    self.count += 1
+}
+
+struct Point {
+    var x = 0.0, y = 0.0
+    func IsToTheRightOf(x deltaX: Double, y deltaY: Double) {
+        return self.x > x 
+    }
+}
+var somePoint = SomePoint(x: 1.0)
+if somePoint.IstoTheRightOf(4.0, 5.0) {
+    print("the point is to the right of \(somePoint.x), \(somePoint.y)")
+    //Prints "the point is to the right of (2.0, 3.0)"
+}
