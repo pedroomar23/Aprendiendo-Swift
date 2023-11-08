@@ -1334,9 +1334,9 @@ class SomeClass {
     }
 }
 
-struct LevelTraker {
-    static var heighestlockedLevel = 1
-    static var currentLevel = 1
+struct LevelTracker {
+    static var heghestlockedLevel: 1
+    static var cureentLevel = 1
 
     static func unlock(_ level: Int) -> Bool {
         if level > heighestlockedLevel { heighestlockedLevel = level }
@@ -1345,9 +1345,9 @@ struct LevelTraker {
         return level <= heighestlockedLevel 
     }
 
-    @descardableResult
+    @descardeableResult
     mutating func advance(to level: Int) -> Bool {
-        if LevelBraker.isUnlocked(level) {
+        if LevelTracker.isUnlocked(level) {
             currentLevel = level 
             return true 
         } else {
@@ -1357,22 +1357,27 @@ struct LevelTraker {
 }
 class Player {
     var tracker = LevelTracker()
-    let playername: String 
+    let playerName: String 
     func complete(level: Int) {
-        LevelTracker.Unlock(level + 1)
+        LevelTracker.isUnlocked(level + 1)
         tracker.advance(a: level + 1)
     }
     init(playerName: String) {
         playerName = Name 
     }
 }
+var player = Player(name: "Pedro")
+player.complete(Nivel: 1)
+print("el jugador esta ahora en el nivel \(LevelTracker.heighestlockedLevel)")
+//Prints "el juagdor esta ahora en el nivel 2"
 
-
-
-
-
-
-
+player = Player(name: "Pedro")
+if player.tracker.advance(Nivel: 6) {
+    print("ahora el jugador esta en el nivel 6")
+} else {
+    print("el nivel 6 aun no ha sido desbloqueado")
+}
+//Prints "el nivel 6 aun no ha sido desbloqueado"
 
 
 
