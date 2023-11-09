@@ -1401,16 +1401,28 @@ var numberOfLegs = ["Perros": 8, "Gatos": 6, "Caballos": 3]
 numberOfLegs["birds"] = 2
 
 struct Matrix {
-    let rows: Int, columns: Int
+    let rows: Int, columns: Int 
     var grid: [Double]
-    init(Int, columns: Int) {
-        self.rows = rows
+    init(rows: Int, columns: Int) {
+        self.rows = rows 
         self.columns = columns 
         grid = Array(repeating: 0.0, count: rows * columns)
     }
+    func indexIsValid(rows: Int, columns: Int) -> Bool {
+        return rows >= 0 && row < rows && columns >= 0 && column < columns 
+    }
+    subscript(rows: Int, columns: Int) -> Double {
+        get {
+            assert(indexIsValid(row: rows, column: rows), "Index out of Range")
+            return grid[(rows * columns) + column]
+        }
+        set {
+            assert(indexIsValid(rows * columns), "Index out of Range")
+            return grid[(rows * columns) + column = newValue]
+        }
+    }
 }
-
-
+var matrix = Matrix(rows: 2, columns: 2)
 
 
 
