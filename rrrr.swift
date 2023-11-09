@@ -1334,9 +1334,9 @@ class SomeClass {
     }
 }
 
-struct LevelTracker {
-    static var heghestlockedLevel: 1
-    static var cureentLevel = 1
+struct Leveltracker {
+    static var heighestlockedLevel = 1
+    static var currentLevel = 1
 
     static func unlock(_ level: Int) -> Bool {
         if level > heighestlockedLevel { heighestlockedLevel = level }
@@ -1345,7 +1345,7 @@ struct LevelTracker {
         return level <= heighestlockedLevel 
     }
 
-    @descardeableResult
+    @discardeableResult
     mutating func advance(to level: Int) -> Bool {
         if LevelTracker.isUnlocked(level) {
             currentLevel = level 
@@ -1366,18 +1366,49 @@ class Player {
         playerName = Name 
     }
 }
-var player = Player(name: "Pedro")
-player.complete(Nivel: 1)
-print("el jugador esta ahora en el nivel \(LevelTracker.heighestlockedLevel)")
-//Prints "el juagdor esta ahora en el nivel 2"
+var player = Player(name: "String")
+player.complete(Level: 1)
+print("el jugador esta en el nivel \(LevelTracker.heighestlockedLevel)")
+//Prints "El jugador esta en el nivel 2"
 
-player = Player(name: "Pedro")
-if player.tracker.advance(Nivel: 6) {
-    print("ahora el jugador esta en el nivel 6")
+player = Player(name: String) 
+if player.tracker.advance(Level: 6) {
+    print("El juagdor ha alcanzado el nivel 6")
 } else {
-    print("el nivel 6 aun no ha sido desbloqueado")
+    print("El nivel 6 aun no esta desbloqueado")
 }
-//Prints "el nivel 6 aun no ha sido desbloqueado"
+//Prints "El nivel 6 aun no esta descbloqueado"
+
+subscript(index: Int) -> Int {
+    get {
+        Aqui el tipo de valor 
+    }
+    set(newValue) {
+        // Aqui va el tipo de accion 
+    }
+}
+struct TimeTable {
+    let multiplier: Int 
+    subscript(index: Int) -> Int {
+        return multiplier * index 
+    }
+}
+let threeTimeTable = TimeTable(multiplier: 3)
+print("six times there is \(threeTimeTable[6])")
+//Prints "six time there is 18"
+
+var numberOfLegs = ["Perros": 8, "Gatos": 6, "Caballos": 3]
+numberOfLegs["birds"] = 2
+
+struct Matrix {
+    let rows: Int, columns: Int
+    var grid: [Double]
+    init(Int, columns: Int) {
+        self.rows = rows
+        self.columns = columns 
+        grid = Array(repeating: 0.0, count: rows * columns)
+    }
+}
 
 
 
