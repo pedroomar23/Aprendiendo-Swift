@@ -1379,14 +1379,6 @@ if player.tracker.advance(Level: 6) {
 }
 //Prints "El nivel 6 aun no esta descbloqueado"
 
-subscript(index: Int) -> Int {
-    get {
-        Aqui el tipo de valor 
-    }
-    set(newValue) {
-        // Aqui va el tipo de accion 
-    }
-}
 struct TimeTable {
     let multiplier: Int 
     subscript(index: Int) -> Int {
@@ -1395,42 +1387,43 @@ struct TimeTable {
 }
 let threeTimeTable = TimeTable(multiplier: 3)
 print("six times there is \(threeTimeTable[6])")
-//Prints "six time there is 18"
+//Prints "six times there is 18"
 
-var numberOfLegs = ["Perros": 8, "Gatos": 6, "Caballos": 3]
-numberOfLegs["birds"] = 2
+var numberOfFlegs = ("Perros": 8, "Gatos": 6, "Hormigas": 3)
+numberOfFlegs["brids"] = 2
 
 struct Matrix {
     let rows: Int, columns: Int 
     var grid: [Double]
     init(rows: Int, columns: Int) {
-        self.rows = rows 
+        self.rows = rows
         self.columns = columns 
         grid = Array(repeating: 0.0, count: rows * columns)
     }
     func indexIsValid(rows: Int, columns: Int) -> Bool {
-        return rows >= 0 && row < rows && columns >= 0 && column < columns 
+        return row >= 0 && row < rows && column >= 0 && column < 0
     }
     subscript(rows: Int, columns: Int) -> Double {
         get {
-            assert(indexIsValid(row: rows, column: rows), "Index out of Range")
-            return grid[(rows * columns) + column]
+            assert(indexIsValid(row: rows, column: columns), "Index out of Range")
+            grid[(rows * columns) + column]
         }
         set {
-            assert(indexIsValid(rows * columns), "Index out of Range")
-            return grid[(rows * columns) + column = newValue]
+            assert(indexIsValid(row: rows, column: columns), "Index out of Range")
+            grid[(rows * columns) + column = newValue]
         }
     }
 }
 var matrix = Matrix(rows: 2, columns: 2)
 
-
-
-
-
-
-
-
+enum Planet {
+    case Marcurio = 1, Venus, Marte, Pluton, Saturno
+    static subscript(n: Int) -> Planet {
+        return Planet(rawValue: n)
+    }
+}
+let mars = Planet[4]
+print(mars)
 
 
 
