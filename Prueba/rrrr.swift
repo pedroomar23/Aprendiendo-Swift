@@ -1428,27 +1428,35 @@ print(mars)
 class Vehicle {
     let currentSpeed = 0.0
     var description: String {
-        return "traveling \(currentSpeed) miles for hours"
+        return "traveling at \(currentSpeed) miles for hours"
     }
     func makeNoise() {
-        do // No es necesario que el carro haga tanto ruido 
+        do // No es necesario que el auto haga ruido
     }
 }
 let someVehicle = Vehicle()
-print("Vehicle: \(someVehicle.description)")
-//Prints "traveling 0.0 miles for hours"
+print("traveling at \(vehicle.description) miles for hours")
+//Prints "traveling at 0.0 miles for hours"
 
-class SomeSubClass: SuperClass {
-    // subclass defenition goes here 
-}
 class Bicycle: Vehicle {
     var hasBasket = false 
 }
-let bicycle = Bicycle()
+let someVehicle = Vehicle()
 bicycle.hasBasket = true 
-bicycle.currentSpeed = 15.0
+vehicle.currentSpeed = 15.0
 print("Bicycle: \(bicycle.description)")
-// "traveling at 15.0 miles for hours"
+//Prints "Bicyle: traveling at 15.0 miles for hours"
+
+class Tamdem: Bicycle {
+    var currentNumberOfPassegers = 0
+}
+let tamdem = Tamdem()
+tamdem.hasBasket = false 
+
+
+
+
+
 
 
 
