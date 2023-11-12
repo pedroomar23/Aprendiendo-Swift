@@ -1425,6 +1425,35 @@ enum Planet {
 let mars = Planet[4]
 print(mars)
 
+class Vehicle {
+    let currentSpeed = 0.0
+    var description: String {
+        return "traveling \(currentSpeed) miles for hours"
+    }
+    func makeNoise() {
+        do // No es necesario que el carro haga tanto ruido 
+    }
+}
+let someVehicle = Vehicle()
+print("Vehicle: \(someVehicle.description)")
+//Prints "traveling 0.0 miles for hours"
+
+class SomeSubClass: SuperClass {
+    // subclass defenition goes here 
+}
+class Bicycle: Vehicle {
+    var hasBasket = false 
+}
+let bicycle = Bicycle()
+bicycle.hasBasket = true 
+bicycle.currentSpeed = 15.0
+print("Bicycle: \(bicycle.description)")
+// "traveling at 15.0 miles for hours"
+
+
+
+
+
 
 
 
