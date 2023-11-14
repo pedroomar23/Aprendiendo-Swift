@@ -1431,27 +1431,35 @@ class Vehicle {
         return "traveling at \(currentSpeed) miles for hours"
     }
     func makeNoise() {
-        do // No es necesario que el auto haga ruido
+        do // No es necesario que haga ruido
     }
 }
 let someVehicle = Vehicle()
-print("traveling at \(vehicle.description) miles for hours")
-//Prints "traveling at 0.0 miles for hours"
+print("traveling at \(someVehicle.description) miles for hours")
+//Prints "traveling 0.0 miles hours"
 
 class Bicycle: Vehicle {
     var hasBasket = false 
 }
 let someVehicle = Vehicle()
-bicycle.hasBasket = true 
-vehicle.currentSpeed = 15.0
+vehicle.hasBasket = true 
+bicycle.currentSpeed = 15.0
 print("Bicycle: \(bicycle.description)")
-//Prints "Bicyle: traveling at 15.0 miles for hours"
+//Prints "Bicycle: traveling at 15.0 miles for hours"
 
-class Tamdem: Bicycle {
-    var currentNumberOfPassegers = 0
+class Tandem {
+    var currentNumberOfPassagers = 0
 }
-let tamdem = Tamdem()
-tamdem.hasBasket = false 
+let tandem = Tandem()
+tandem.hasBasket = false 
+tandem.currentNumbersOfPassagers = 2
+tandem.currentSpeed = 22.0
+print("Tandem: \(tandem.description)")
+//Prints "Tandem: traveling 22.0 miles for hours"
+
+
+
+
 
 
 
