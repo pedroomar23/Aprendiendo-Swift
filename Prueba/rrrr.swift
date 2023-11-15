@@ -1431,31 +1431,67 @@ class Vehicle {
         return "traveling at \(currentSpeed) miles for hours"
     }
     func makeNoise() {
-        do // No es necesario que haga ruido
+        do // No es necesario que el carro haga ruido
     }
 }
 let someVehicle = Vehicle()
-print("traveling at \(someVehicle.description) miles for hours")
-//Prints "traveling 0.0 miles hours"
+print("Vehicle: \(someVehicle.description)")
+//Prints "Vehicle: traveling at 0.0 miles for hours"
 
-class Bicycle: Vehicle {
+class Bicyle: Vehicle {
     var hasBasket = false 
 }
 let someVehicle = Vehicle()
-vehicle.hasBasket = true 
-bicycle.currentSpeed = 15.0
+bicycle.hasBasket = true 
+vehicle.currentSpeed = 15.0
 print("Bicycle: \(bicycle.description)")
 //Prints "Bicycle: traveling at 15.0 miles for hours"
 
-class Tandem {
+class Tandem: Bicycle {
     var currentNumberOfPassagers = 0
 }
 let tandem = Tandem()
-tandem.hasBasket = false 
-tandem.currentNumbersOfPassagers = 2
+tandem.hasBasket = true 
+tandem.currentNumberOfPassagers = 2
 tandem.currentSpeed = 22.0
-print("Tandem: \(tandem.description)")
-//Prints "Tandem: traveling 22.0 miles for hours"
+print("tandem: \(tandem.description)")
+// Tandem: "traveling at 22.0 miles for hours"
+
+class Train: Vehicle {
+    override func makeNoise() {
+        print("Choo Choo")
+    }
+}
+let train = Train()
+train.makeNoise()
+//Prints "Choo Choo"
+
+class Car: Vehicle {
+    var gear = 1
+    override var description: String {
+        return super.description + " in gear \(gear)"
+    }
+}
+let car = Car()
+car.currentSpeed = 25.0
+car.gear = 2
+print("Car: \(car.description)")
+//Prints "Car: traveling at 25.0 miles for hours"
+
+class AutomaticCar: Car {
+    override var currentSpeed: Double {
+        didSet {
+            gear = Int(currentSpeed / 10.0) + 1
+        }
+    }
+}
+let automaticCar = AutomaticCar()
+automaticCar.currentSpeed = 35.0
+print("AutomaticCar: \(automaticCar.description)")
+//Prints "AutomaticCar: traveling at 35.0 miles for hours"
+
+
+
 
 
 
