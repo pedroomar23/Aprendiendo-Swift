@@ -1458,25 +1458,25 @@ print("tandem: \(tandem.description)")
 // Tandem: "traveling at 22.0 miles for hours"
 
 class Train: Vehicle {
-    override func makeNoise() {
+    override func maikeNoise() {
         print("Choo Choo")
     }
 }
 let train = Train()
-train.makeNoise()
-//Prints "Choo Choo"
+train.maikeNoise()
+print("Choo Choo")
 
 class Car: Vehicle {
     var gear = 1
-    override var description: String {
+    override var currentSpeed: String {
         return super.description + " in gear \(gear)"
     }
 }
 let car = Car()
-car.currentSpeed = 25.0
+car.currentSpeed = 35.0
 car.gear = 2
 print("Car: \(car.description)")
-//Prints "Car: traveling at 25.0 miles for hours"
+//Prints "Car: traveling at 35.0 miles for hours"
 
 class AutomaticCar: Car {
     override var currentSpeed: Double {
@@ -1489,6 +1489,32 @@ let automaticCar = AutomaticCar()
 automaticCar.currentSpeed = 35.0
 print("AutomaticCar: \(automaticCar.description)")
 //Prints "AutomaticCar: traveling at 35.0 miles for hours"
+
+struct Fahrenheit {
+    var temperatura: Double {
+        Init() {
+            temperatura = 32.0°
+        }
+    }
+}
+var f = Fahrenheit()
+print("La temperatura predeterminada es \(f.temperatura)° Fahrenheit")
+//Prints "La temperatura predeterminada es 32.0° Fahrenheit"
+
+struct Fahrenheit {
+    temperatura VAR = 32.0°
+}
+
+struct Celsius {
+    var temperatureInFahrenheit: Double 
+    init(fromFahrenheit Fahrenheit: Double) {
+        temperatureInCelsius = (fahrenheit - 32.0) / 1.8
+    }
+    init(fromKelvin Kelvin: Double) {
+        temperatureInFahrenheit = kelvin - 273.15
+    }
+}
+
 
 
 
