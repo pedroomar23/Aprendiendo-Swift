@@ -1491,29 +1491,55 @@ print("AutomaticCar: \(automaticCar.description)")
 //Prints "AutomaticCar: traveling at 35.0 miles for hours"
 
 struct Fahrenheit {
-    var temperatura: Double {
-        init() {
-            temperatura = 32.0
-        }
+    var temperatura: Double 
+    Init() {
+        temperatura = 32.0
     }
 }
-let f = Fahrenheit()
-print("La temperatura predeterminada es \(f.temperatura) Fahrenheit")
+let F = Fahrenheit()
+print("La temperatura predeterminada es \(F.temperatura) Fahrenheit")
 //Prints "La temperatura predeterminada es 32.0 Fahrenheit"
 
-struct Celsius {
+struct Fahrenheit {
+    temperatura VAR = 32.0
+}
+
+let Celsius {
     var temperatureInCelsius: Double
     init(fromFahrenheit Fahrenheit: Double) {
         temperatureInCelsius = (Fahrenheit - 32.0) / 1.8
     }
-    init(framKelvin Kelvin: Double) {
+    init(FromKelvin Kelvin: Double) {
         temperatureInCelsius = kelvin - 273.15
     }
 }
-let broilingPointOfWater = (fromFahrenheit: 212.0)
-broilingPointOfWater.temperatureInCelsius is 100.0
-let freezingPointOfWater = (fromKelvin Kelvin: 273.15)
-freezingPointOfWater.temperatureInCelsius is 0.0
+let boilingPointOfWater = Celsius(fromFahrenheit: 212.0)
+// boilingPointOfWater.temperatureInCelsius is 100.0
+let freezingPointOfWater = Celsius(fromKelvin: 273.15)
+// freezingPointOfWater.temperatureInCelsius is 0.0
+
+struct Color {
+    let red, green, blue: Double
+    init(red: Double, green: Double, blue: Double) {
+        self.red = red
+        self.green = green
+        self.blue = blue
+    }
+    init(white: Double) {
+        red = white
+        green = white
+        blue = white
+    }
+}
+let magenta = Color(red: 1.0, green: 0.0, blue: 1.0)
+let halfGray = Color(white: 0.5)
+let veryGreed = Color(0.0, 1.0, 0.0)
+// this reports a compile times error argument labels are requerided 
+
+
+
+
+
 
 
 
