@@ -1496,27 +1496,27 @@ struct Fahrenheit {
         temperatura = 32.0
     }
 }
-let F = Fahrenheit()
-print("La temperatura predeterminada es \(F.temperatura) Fahrenheit")
+let f = Fahrenheit()
+print("La temperatura predeterminada es \(f.temperatura) Fahrenheit")
 //Prints "La temperatura predeterminada es 32.0 Fahrenheit"
 
 struct Fahrenheit {
     temperatura VAR = 32.0
 }
 
-let Celsius {
-    var temperatureInCelsius: Double
-    init(fromFahrenheit Fahrenheit: Double) {
-        temperatureInCelsius = (Fahrenheit - 32.0) / 1.8
+struct Celsius {
+    var temperatureInCelsius: Double 
+    init(fromFahrenheit fahrenheit: Double) {
+        temperatureInCelsius = (fahrenheit - 32.0) / 1.8
     }
-    init(FromKelvin Kelvin: Double) {
+    init(fromKelvin kelvin: Double) {
         temperatureInCelsius = kelvin - 273.15
     }
 }
-let boilingPointOfWater = Celsius(fromFahrenheit: 212.0)
+let boilingPointOfWater = (fromFahrenheit: 212.0)
 // boilingPointOfWater.temperatureInCelsius is 100.0
-let freezingPointOfWater = Celsius(fromKelvin: 273.15)
-// freezingPointOfWater.temperatureInCelsius is 0.0
+let freezingPointOfWater = (fromKelvin: 273.15)
+// freezingPointOfWater.temperattureInCelsius is 0.0
 
 struct Color {
     let red, green, blue: Double
@@ -1531,10 +1531,60 @@ struct Color {
         blue = white
     }
 }
-let magenta = Color(red: 1.0, green: 0.0, blue: 1.0)
-let halfGray = Color(white: 0.5)
-let veryGreed = Color(0.0, 1.0, 0.0)
-// this reports a compile times error argument labels are requerided 
+let magante = Color(1.0, 0.0, 1.0)
+let halfGray = Color(0.5)
+let veryGreen = Color(0.0, 1.0, 0.0)
+// this reports a compile time errors argument labels are requerid
+
+struct Celsius {
+    var temperatureInCelsius: Double
+    init(fromFahrenheit fahrenheit: Double) {
+        temperatureInCelsius = (Fahrenheit - 32.0) / 1.8
+    }
+    init(fromKelvin kelvin: Double) {
+        temperatureInCelsius = kelvin - 273.15
+    }
+    init(_ celsius: Double) {
+        temperatureInCelsius = celsius
+    }
+}
+let bodyTemperature = Celsius(37.0)
+// bodyTemperature.temperatureInCelsius is 37.0
+
+class SurveyQuestion {
+    var text: String
+    var response: String?
+    init(text: String) {
+        sefl.text = text
+    }
+    func ask() {
+        print(text)
+    }
+}
+let chooseQuestion = SurveyQuestion(text: "Do you like choose?")
+chooseQuestion.ask()
+//Prints "Do you like choose?"
+chooseQuestion.response()
+//Prints "Yes, I do like choose"
+
+class SurveyQuestion {
+    var text: String
+    var response: String
+    init(text: String) {
+        self.text = text
+    }
+    func ask() {
+        print(text)
+    }
+}
+let beetsQuestion = SuerveyQuestion(text: "How about beets?")
+beetsQuestion.ask()
+//Prints "How about beets?"
+beetsQuestion.response() 
+//Prints "I also like beets. (But not with choose.)"
+
+
+
 
 
 
