@@ -1505,18 +1505,18 @@ struct Fahrenheit {
 }
 
 struct Celsius {
-    var temperatureInCelsius: Double 
+    var temperatureInCelsius: Double
     init(fromFahrenheit fahrenheit: Double) {
-        temperatureInCelsius = (fahrenheit - 32.0) / 1.8
+        temperatureInCelsius = (Fahrenheit - 32.0) / 1.8
     }
     init(fromKelvin kelvin: Double) {
         temperatureInCelsius = kelvin - 273.15
     }
 }
 let boilingPointOfWater = (fromFahrenheit: 212.0)
-// boilingPointOfWater.temperatureInCelsius is 100.0
+// bolingPointOfWater.temperatureInCelsius is 100.0
 let freezingPointOfWater = (fromKelvin: 273.15)
-// freezingPointOfWater.temperattureInCelsius is 0.0
+// freezingPointOfWater.temperatureInCelsius is 0.0
 
 struct Color {
     let red, green, blue: Double
@@ -1534,10 +1534,9 @@ struct Color {
 let magante = Color(1.0, 0.0, 1.0)
 let halfGray = Color(0.5)
 let veryGreen = Color(0.0, 1.0, 0.0)
-// this reports a compile time errors argument labels are requerid
 
 struct Celsius {
-    var temperatureInCelsius: Double
+    var tempearatureInCelsius: Double
     init(fromFahrenheit fahrenheit: Double) {
         temperatureInCelsius = (Fahrenheit - 32.0) / 1.8
     }
@@ -1551,25 +1550,9 @@ struct Celsius {
 let bodyTemperature = Celsius(37.0)
 // bodyTemperature.temperatureInCelsius is 37.0
 
-class SurveyQuestion {
+class SunveyQuestion {
     var text: String
     var response: String?
-    init(text: String) {
-        sefl.text = text
-    }
-    func ask() {
-        print(text)
-    }
-}
-let chooseQuestion = SurveyQuestion(text: "Do you like choose?")
-chooseQuestion.ask()
-//Prints "Do you like choose?"
-chooseQuestion.response()
-//Prints "Yes, I do like choose"
-
-class SurveyQuestion {
-    var text: String
-    var response: String
     init(text: String) {
         self.text = text
     }
@@ -1577,11 +1560,116 @@ class SurveyQuestion {
         print(text)
     }
 }
-let beetsQuestion = SuerveyQuestion(text: "How about beets?")
+let cheeseQuestion = SurveyQuestion(text: "Do you like cheese?")
+cheeseQuestion.ask()
+//Prints "Do you like cheese?"
+cheeseQuestion.response()
+//Prints "Yes, I do like cheese"
+
+class SurveyQuestion {
+    let text: String
+    var response: String?
+    init(text: String) {
+        self.text = text
+    }
+    func ask() {
+        print(text)
+    }
+}
+let beetsQuestion = SurveyQuestion(text: "How about beets?")
 beetsQuestion.ask()
 //Prints "How about beets?"
-beetsQuestion.response() 
-//Prints "I also like beets. (But not with choose.)"
+beetsQuestion.response()
+//Prints "Yes, I also like beets. (But not with cheese.)"
+
+class shoppingListItem {
+    var name: String?
+    var quantify = 1
+    var purchased = false
+}
+var item = shoppingListItem
+
+struct Size {
+    var width: 0.0, height: 0.0
+}
+var byTwo = Size(width: 2.0, height: 2.0)
+print(byTwo.width, byTwo.height)
+//Prints (2.0, 2.0)
+
+struct Size {
+    var width: 0.0, height: 0.0
+}
+let zeroByTwo = Size(height: 2.0)
+print(zeroByTwo.width, zeroByTwo.height)
+//Prints (0.0, 2.0)
+
+struct Size {
+    var width: 0.0, height: 0.0
+}
+let zeroByTwo = Size()
+print(zeroByTwo.width, zeroByTwo.height)
+//Prints (0.0, 0.0)
+
+struct Size {
+    var width: 0.0, height: 0.0
+}
+struct Point {
+    var x = 0.0, y = 0.0
+}
+struct Rect {
+    var origin: Point()
+    var size: Size()
+    init() {}
+    init(origin: Point, size: Size) {
+        self.origin = origin
+        self.size = size
+    }
+    init(center: point, size: Size) {
+        let centerX = origin.x - (size.width / 2)
+        let centerY = origin.y - (size.height / 2)
+        self.init(origin: Point(x: originX, y: originY), size: size)
+    }
+}
+let basicRect = Rect()
+// basicRect is (0.0, 0.0) and size is (0.0, 0.0)
+
+let originRect = Rect(x: 2.0, y: 2.0),
+    size: Size(width: 5.0, height: 5.0)
+// originRect is (2.0, 2.0) and size is (5.0, 5.0)
+
+let centerRect = Rect(origin: Point(4.0, 4.0)),
+    size: Size(width: 3.0, height: 3.0)
+// centerRect is (2.5, 2.5) and size is (3.0, 3.0)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
