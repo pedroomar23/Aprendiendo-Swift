@@ -1624,22 +1624,44 @@ struct Rect {
         self.origin = origin
         self.size = size
     }
-    init(center: point, size: Size) {
-        let centerX = origin.x - (size.width / 2)
-        let centerY = origin.y - (size.height / 2)
-        self.init(origin: Point(x: originX, y: originY), size: size)
+    init(center: Point, size: Size) {
+        let originX = center.x - (size.width / 2)
+        let originY = center.y - (size.height / 2)
+        self.init(origin: Point(x: centerX, y: centerY), size: size)
     }
 }
 let basicRect = Rect()
-// basicRect is (0.0, 0.0) and size is (0.0, 0.0)
+// basicRect is (0.0, 0.0) and size is (0.0)
 
-let originRect = Rect(x: 2.0, y: 2.0),
-    size: Size(width: 5.0, height: 5.0)
+let originRect = Rect(origin: Point(x: 2.0, y: 2.0),
+    size: Size(width: 5.0, height: 5.0))
 // originRect is (2.0, 2.0) and size is (5.0, 5.0)
 
-let centerRect = Rect(origin: Point(4.0, 4.0)),
-    size: Size(width: 3.0, height: 3.0)
+let centerRect = Rect(center: Point(x: 4.0, y: 4.0),
+    size: Size(width: 3.0, height: 3.0))
 // centerRect is (2.5, 2.5) and size is (3.0, 3.0)
+
+init(hola: Mundo) {
+    self.hola = mundo
+}
+convenience init(hola: Mundo) {
+    self.hola = mundo
+}
+
+class Vehicle {
+    var numberOfWeels = 0
+    var description: String {
+        return \(numberOfWells) weel(s)
+    }
+}
+
+    
+
+
+
+
+
+
 
 
 
