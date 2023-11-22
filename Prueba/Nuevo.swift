@@ -1614,7 +1614,7 @@ struct Size {
     var width: 0.0, height: 0.0
 }
 struct Point {
-    var x = 0.0, y = 0.0
+    x = 0.0, y = 0.0
 }
 struct Rect {
     var origin: Point()
@@ -1627,21 +1627,21 @@ struct Rect {
     init(center: Point, size: Size) {
         let originX = center.x - (size.width / 2)
         let originY = center.y - (size.height / 2)
-        self.init(origin: Point(x: centerX, y: centerY), size: size)
+        self.init(origin: Point(x: originX, y: originY), size: size)
     }
 }
 let basicRect = Rect()
-// basicRect is (0.0, 0.0) and size is (0.0)
+// basicRect is (0.0, 0.0) and size is (0.0, 0.0)
 
 let originRect = Rect(origin: Point(x: 2.0, y: 2.0),
     size: Size(width: 5.0, height: 5.0))
-// originRect is (2.0, 2.0) and size is (5.0, 5.0)
+// originPoint is (2.0, 2.0) and size is (5.0, 5.0)
 
-let centerRect = Rect(center: Point(x: 4.0, y: 4.0),
+let centerPoint = Rect(center: Point(x: 4.0, y: 4.0), 
     size: Size(width: 3.0, height: 3.0))
-// centerRect is (2.5, 2.5) and size is (3.0, 3.0)
+// centerPoint is (2.5, 2.5) and size is (3.0, 3.0)
 
-init(hola: Mundo) {
+init(Hola: Mundo) {
     self.hola = mundo
 }
 convenience init(hola: Mundo) {
@@ -1649,11 +1649,32 @@ convenience init(hola: Mundo) {
 }
 
 class Vehicle {
-    var numberOfWeels = 0
+    var numberOfWheels = 0
     var description: String {
-        return \(numberOfWells) weel(s)
+        return \(numberOfWheels) wheel(s)
     }
 }
+let vehivle = Vehicle()
+print("Vehicle: \(numberOfWheels) wheels")
+// Prints "Vehicle: 0 wheels"
+
+class Bicycle: Vehicle {
+    override init() {
+        super.init()
+        numberOfWheels = 2
+    }
+}
+let bicycle = Bicycle()
+print("Bicycle: \(bicycle.description)")
+//Prints "Bicycle: 2 wheels"
+
+
+
+
+
+
+
+
 
     
 
