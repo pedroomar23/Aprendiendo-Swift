@@ -1656,10 +1656,10 @@ class Vehicle {
 }
 let vehicle = Vehicle()
 print("Vehicle: \(vehicle.description)")
-// Vehicle: 0 wheels
+// Vehicle: 0 wheel(s)
 
 class Bicycle: Vehicle {
-    override init {
+    override init() {
         super.init()
         numberOfWheels = 2
     }
@@ -1668,31 +1668,68 @@ let bicycle = Bicycle()
 print("Bicycle: \(bicycle.description)")
 // Bicycle: 2 wheels
 
-class Hoverboard {
-    var color: String 
+class Hoverboard: Vehicle {
+    var color: String
     init(color: String) {
         self.color = color
         // super.init() implicitly called here
     }
-    override var desciption: String {
+    override var description: String {
         return \(super.description) in a beautiful \(color)
     }
 }
 let hoverboard = Hoverboard(color: "Silver")
 print("Hoverboard: \(hoverboard.description)")
-// Hoverboard: 0 wheels iin a beautiful silver 
+// Hoverboard: 0 wheels in a beautiful silver
 
 class Food {
-    var name: String
+    var name: String 
     init(name: String) {
         self.name = name
     }
-    override init() {
+    convenience init() {
         self.init(name: "[Unnamed]")
     }
 }
-let namedMeat = Flood(name: "Bacon")
-// namedMeat name is "Bacon"
+let namedMeat = Food(name: "Bacon")
+// namedMeat name is Bacon
+let mysteryMeat = Food()
+// mystery name is "[Unnamed]"
+
+class RecipeIngredient: Food {
+    var quantify: Int
+    init(name: String, quantify: Int) {
+        self.quantify = quantify
+        super.init(name: name)
+    }
+    override convenience init(name: String) {
+        self.init(name: name, quantify: 1)
+    }
+}
+let oneMysteryFood = RecipeIngredient()
+let oneBancon = RecipeIngredient(name: "Bacon")
+let sixEggs = RecipeIngredient(name: "Eggs", quantify: 6)
+
+class ShoppingListItem: RecipeIngredient {
+    var purchased: false
+    var description: String {
+        var outpot = "\(quantity) x \(name)"
+        outpot += purchased "y" : "x"
+        return outpot
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
