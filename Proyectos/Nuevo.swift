@@ -1654,19 +1654,53 @@ class Vehicle {
         return \(numberOfWheels) wheel(s)
     }
 }
-let vehivle = Vehicle()
-print("Vehicle: \(numberOfWheels) wheels")
-// Prints "Vehicle: 0 wheels"
+let vehicle = Vehicle()
+print("Vehicle: \(vehicle.description)")
+// Vehicle: 0 wheels
 
 class Bicycle: Vehicle {
-    override init() {
+    override init {
         super.init()
         numberOfWheels = 2
     }
 }
 let bicycle = Bicycle()
 print("Bicycle: \(bicycle.description)")
-//Prints "Bicycle: 2 wheels"
+// Bicycle: 2 wheels
+
+class Hoverboard {
+    var color: String 
+    init(color: String) {
+        self.color = color
+        // super.init() implicitly called here
+    }
+    override var desciption: String {
+        return \(super.description) in a beautiful \(color)
+    }
+}
+let hoverboard = Hoverboard(color: "Silver")
+print("Hoverboard: \(hoverboard.description)")
+// Hoverboard: 0 wheels iin a beautiful silver 
+
+class Food {
+    var name: String
+    init(name: String) {
+        self.name = name
+    }
+    override init() {
+        self.init(name: "[Unnamed]")
+    }
+}
+let namedMeat = Flood(name: "Bacon")
+// namedMeat name is "Bacon"
+
+
+
+
+
+
+
+
 
 
 
