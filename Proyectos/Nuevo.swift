@@ -1697,20 +1697,20 @@ let mysteryMeat = Food()
 // mystery name is "[Unnamed]"
 
 class RecipeIngredient: Food {
-    var quantify: Int
-    init(name: String, quantify: Int) {
-        self.quantify = quantify
-        super.init(name: name)
+    var name: String 
+    init(name: String) {
+        self.name = name
+        super.init(name: String, quantity: Int)
     }
     override convenience init(name: String) {
-        self.init(name: name, quantify: 1)
+        super.init(name: name)
     }
 }
-let oneMysteryFood = RecipeIngredient()
-let oneBancon = RecipeIngredient(name: "Bacon")
-let sixEggs = RecipeIngredient(name: "Eggs", quantify: 6)
+let RecipeIngredient = ShoppingListItem()
+let RecipeIngredient = ShoppingListItem(name: "Bacon")
+let RecipeIngredient = ShoppingListItem(name: "Eiggs", quantity: 6)
 
-class ShoppingListItem: RecipeIngredient {
+class RecipeIngredient: ShoppingListItem {
     var purchased: false
     var description: String {
         var outpot = "\(quantity) x \(name)"
@@ -1718,6 +1718,28 @@ class ShoppingListItem: RecipeIngredient {
         return outpot
     }
 }
+let breakFastList = [
+    ShoppingListItem(),
+    ShoppingListItem(name: "Bacon")
+    ShoppingListItem(name: Eiggs, quantity: 6)
+]
+breakFastList[0].name = "Orange juice"
+breakFastList[0].purchased = true
+for item in breakFastList {
+    print(item.description)
+}
+// 1 x Orange juice y
+// 1 x Bancon x
+// 6 x Eiggs x
+
+
+
+
+
+
+
+
+
 
 
 
