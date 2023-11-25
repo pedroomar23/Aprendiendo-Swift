@@ -1697,40 +1697,61 @@ let mysteryMeat = Food()
 // mystery name is "[Unnamed]"
 
 class RecipeIngredient: Food {
-    var name: String 
-    init(name: String) {
-        self.name = name
-        super.init(name: String, quantity: Int)
-    }
-    override convenience init(name: String) {
+    var quantity = Int
+    init(name: String, quantity: Int) {
+        self.quantity = quantity
         super.init(name: name)
     }
+    override convenience init(name: String) {
+        self.init(name: name, quantity: 1)
+    }
 }
-let RecipeIngredient = ShoppingListItem()
-let RecipeIngredient = ShoppingListItem(name: "Bacon")
-let RecipeIngredient = ShoppingListItem(name: "Eiggs", quantity: 6)
+let RecipeIngredient: ShoppingLisItem()
+let RecipeIngredient: ShoppingListItem(name: "Bacon")
+let RecipeIngredient: ShoppingListItem(name: "Eiggs", quantity: 6)
 
 class RecipeIngredient: ShoppingListItem {
-    var purchased: false
+    var purchased = Int
     var description: String {
         var outpot = "\(quantity) x \(name)"
         outpot += purchased "y" : "x"
         return outpot
     }
 }
-let breakFastList = [
+var breakFastList = [
     ShoppingListItem(),
     ShoppingListItem(name: "Bacon")
-    ShoppingListItem(name: Eiggs, quantity: 6)
+    ShoppingListItem(name: "Eiggs", quantity: 6)
 ]
-breakFastList[0].name = "Orange juice"
-breakFastList[0].purchased = true
+breakFastList[0].name = "Orange Juice"
+breakFastList[0].purchased = false
 for item in breakFastList {
     print(item.description)
 }
-// 1 x Orange juice y
-// 1 x Bancon x
+// 1 x Orange Juice y
+// 1 x Bacon x
 // 6 x Eiggs x
+
+let wholeNumber: Double = 12345.0
+let pi = 3.14159
+if let valueMantained = Int(exactly: wholeNumber) {
+    print("\(wholeNumber) conversion to mantains of \(valueMantained)")
+}
+// 12345.0 conversion to mantains de 12345
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
