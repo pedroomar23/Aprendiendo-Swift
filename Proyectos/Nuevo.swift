@@ -1734,10 +1734,68 @@ for item in breakFastList {
 
 let wholeNumber: Double = 12345.0
 let pi = 3.14159
-if let valueMantained = Int(exactly: wholeNumber) {
-    print("\(wholeNumber) conversion to mantains of \(valueMantained)")
+if let valueMaintained = Int(exactly: wholeNumber) {
+    print("\(wholeNumber) conversion to Int maintain value of \(valueMaintained)")
 }
-// 12345.0 conversion to mantains de 12345
+// "12345.0 conversion to Int Maintain value of 12345"
+
+let valueChanged = Int(exactly: pi)
+// ValueChanged is of type Int?, not Int
+if valueChanged == nil {
+    print("\(pi) conversion to Int doesn't maintain value")
+}
+// Prints "3.14159 conversion to Int doesn't maintain value"
+
+struct Animal {
+    let species: String 
+    init?(species: String) {
+        if species.isEmpty { return nil }
+        self.species = species
+    }
+}
+let someCreature = Animal(species: "Giraffe")
+// someCreature is of type Animal?, not Animal
+if let giraffe = someCreature {
+    print("An animal was initializated with a species of \(giraffe.species)")
+}
+// "An animal was initializated with a species of Giraffe"
+
+let anonymousCreature = Animal(species: "")
+// anonymousCreature is of type Animal?, not Animal
+if let anonymousCreature == nil {
+    print("The anonymous creature couldn't be initializated")
+}
+// Prints "The anonymous creature couldn't be initializated"
+
+enum TemperatureUnit {
+    case kelvin, celsius, fahrenheit
+    init?(symbol: Character) {
+        switch symbol {
+            case "K":
+                self = .kelvin
+            case "C":
+                self = .celsius
+            case "F":
+                self = .fahrenheit
+            default:
+                return nil 
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
