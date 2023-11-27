@@ -1770,7 +1770,7 @@ if let anonymousCreature == nil {
 enum TemperatureUnit {
     case kelvin, celsius, fahrenheit
     init?(symbol: Character) {
-        switch symbol {
+        switch Symbol {
             case "K":
                 self = .kelvin
             case "C":
@@ -1778,10 +1778,87 @@ enum TemperatureUnit {
             case "F":
                 self = .fahrenheit
             default:
-                return nil 
+                return nil
         }
     }
 }
+let fahrenheitUnit = TemperatureUnit(symbol: "F")
+if fahrenheitUnit != nil {
+    print("This is a defined temperature unit, so initalization succeeded")
+}
+// Prints "This is a defined temperature unit, so initalization succeeded."
+
+let unknownUnit = TemperatureUnit(symbol: "X")
+if unknaownUnit == nil {
+    print("This isn't a definded temperature unit, so initalization succeeded")
+}
+// Prints "This isn't a defined temperature unit, so initialization succeeded."
+
+enum TemperatureUnit: Character {
+    case kelvin: "K", celsius: "C", fahrenheit: "F"
+}
+let fahrenheitUnit = TemperatureUnit(rawValue: "F")
+if fahrenheitUnit != nil {
+    print("This is a defined temperature unit, so initialization succeeded")
+}
+// Prints "This is a defined temperature unit, so initialization succeeded."
+
+let unknownUnit = TemperatureUnit(rawValue: "X")
+if unknownUnit == nil {
+    print("This isn't a defined temperature unit, so initialization succeeded")
+}
+// Prints "This isn't a defined temperature unit, so initializated succeeded."
+
+class Product {
+    let name: String
+    init?(name: String) {
+        if name.isEmpty { return nil }
+        self.name = name
+    }
+}
+class Product {
+    let quantity: Int
+    init?(name: String, quantity: Int) {
+        if quantity < 1 { return nil }
+        self.quantity = quantity
+        super.init(name: name)
+    }
+}
+let twoShocks = CartItem(name: "shock", quantity: 2) {
+    print("Item: \(twoShocks.name), quantity: \(twoShocks.quantity)")
+}
+// Prints "Item: Shock, quantity: 2"
+
+let zeroShirts = CartItem(name: "shirt", quantity: 0) {
+    print("Item: \(zeroShirts.name), quantity: \(zeroShirts.quantity)")
+} else {
+    print("Unable to initialize zero shirts")
+}
+// Prints "Unable to initialize zero shirts"
+
+if let oneUnnamed = CartItem(name: "", quantity: 1) {
+    print("Item: \(oneUnnamed.name), quantity: \(oneUnnamed.quantity)")
+} else {
+    print("Unnable to initialize one unnamed product")
+}
+
+class Document {
+    var name: String?
+    // This initializer creates a document with a nil name value
+    init {}
+    // This initializer creates a document with a nonempty name value
+    init?(name: String) {
+        if name.isEmpty { return nil }
+        self.name = name
+    }
+}
+
+
+
+
+
+
+
 
 
 
