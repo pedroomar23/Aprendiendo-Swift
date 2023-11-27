@@ -1847,11 +1847,74 @@ class Document {
     // This initializer creates a document with a nil name value
     init {}
     // This initializer creates a document with a nonempty name value
-    init?(name: String) {
-        if name.isEmpty { return nil }
-        self.name = name
+    init(name: String) {
+        self.name - name
     }
 }
+class AutomaticallyNamedDocument: Document {
+    override init() {
+        super.init()
+        self.name = "[Untitled]"
+    }
+    override init(name: String) {
+        super.init()
+        if name.isEmpty {
+            self.name = "[Untitled]"
+        } else {
+            self.name = name
+        }
+    }
+}
+class UntitledDocument: Document {
+    override init() {
+        super.init(name: "[Untitled]")!
+    }
+}
+
+class SomeClass {
+    required init() {
+        // implementaion initializer goes here
+    }
+}
+class SomeSubclass: SomeClass {
+    required init() {
+        // subclass implementation of the required initializer goes here
+    }
+}
+
+class SomeClass {
+    let someProperty: SomeType = {
+        // create a default value for someProperty of the inside this closure
+        // someValue must be of the same type as someType
+        return someValue
+    }()
+}
+
+struct Cheesboard {
+    let boardColors: [Bool] = {
+        var temporyBoard: [Bool] = []
+        var isBlack = false
+        for i in 1...8 {
+            for j in 1...8 {
+                temporyBoard.append(isBlack)
+                isBlack = !isBlack
+            }
+            isBlack = !isBlack
+        }
+        return temporyBoard
+    }()
+    func squareIsBlackAt(row: Int, column: Int) -> Bool {
+        return boardColors([row * 8] + column)
+    }
+}
+
+
+
+
+
+
+
+
 
 
 
