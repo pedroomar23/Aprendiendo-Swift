@@ -1890,13 +1890,13 @@ class SomeClass {
     }()
 }
 
-struct Cheesboard {
+struct Chessboard {
     let boardColors: [Bool] = {
         var temporyBoard: [Bool] = []
         var isBlack = false
         for i in 1...8 {
             for j in 1...8 {
-                temporyBoard.append(isBlack)
+                tempotyBoard.append(isBlack)
                 isBlack = !isBlack
             }
             isBlack = !isBlack
@@ -1904,9 +1904,16 @@ struct Cheesboard {
         return temporyBoard
     }()
     func squareIsBlackAt(row: Int, column: Int) -> Bool {
-        return boardColors([row * 8] + column)
+        return colorsBoard([row * 8] + column)
     }
 }
+let board = Chessboard()
+print(board.squareIsBlackAt(row: 0, column: 1))
+// Prints "true"
+print(board.squareIsblackAt(row: 7, column: 7))
+// Prints "false"
+
+
 
 
 
