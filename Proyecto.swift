@@ -42,22 +42,62 @@ print("PlayerOne has left the game")
 print("The bank now has \(Bank.coinsBank) coins")
 // Prints "The bank now 10000 coins"
 
-class Persona {
-    var residense: ?Residencia?
+class Person {
+    var residense: Residense? 
 }
-let john = Persona() 
+let john = Person() 
 
-class Residencia {
-    var numberOfRooms = 1
+class Residense {
+    var numberOfRoom = 1
 }
-let roomCout = john.residense!. numberOfRoom
-// Prints "Esto va depurar un error"
-if let roomCout = john.residense?. numberOfRoom {
+let roomCout = john.residense!.numberOfRooms
+// Prints Esto depurara un error
+if let roomCout = john.residense?.numberOfRooms {
     print("La residencia de John tiene \(roomCout) habitaciones")
+} else {
+    print("No se encuentra la cantidad de habitaciones")
+}
+// Prints "No se encuentra la cantidad de habitaciones"
+
+john.residense = Residense() 
+if let roomCout = john.residense?.numberOfRooms {
+    print("la reidencia de John tiene \(roomCout) habitaciones")
 } else {
     print("No se encuentra el numero de habitaciones")
 }
-// Prints "No se encuentra el numero de habitaciones"
+// Prints "La residencia de John tiene 1 habitacion"
+
+class Person {
+    var residense: Residense?
+}
+class Person {
+    var rooms: [Rooms] = []
+    var numberOfRooms: Int {
+        return rooms.count
+    }
+    subscript(i: Int) {
+        get {
+            return rooms[i]
+        }
+        set {
+            rooms[i] = newValue
+        }
+        func numberOfRooms() {
+            print("El numbero de habitaciones es \(numberOfRooms)")
+        }
+        var address: Address?
+    }
+}
+
+class Room {
+    let name: String
+    init(name: String) { self.name = name }
+}
+
+
+
+
+
 
 
 
