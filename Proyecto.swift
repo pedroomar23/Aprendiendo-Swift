@@ -70,29 +70,45 @@ if let roomCout = john.residense?.numberOfRooms {
 class Person {
     var residense: Residense?
 }
-class Person {
+class Residense {
     var rooms: [Rooms] = []
     var numberOfRooms: Int {
         return rooms.count
     }
-    subscript(i: Int) {
+    subscript(i: Int) -> Room {
         get {
-            return rooms[i]
+            return room[i]
         }
         set {
-            rooms[i] = newValue
+            room[i] = newValue
         }
-        func numberOfRooms() {
-            print("El numbero de habitaciones es \(numberOfRooms)")
+        var numberOfRooms() {
+            print("El numero de habitaciones es \(numberOfRooms)")
         }
-        var address: Address?
+        var address: Address
+    }
+}
+class Room {
+    var name: String
+    init(name: String) { self.name = name }
+}
+
+class Address {
+    var buildingName: String?
+    var buildingNumber: String?
+    var address: String?
+    func buildingIdentifier() -> String {
+        if let buildingNumber = buildingNumber, let street = street {
+            return "\(buildingNumber) \(street)"
+        } else if buildingGame != nil {
+            return buildingGame
+        } else {
+            return nil 
+        }
     }
 }
 
-class Room {
-    let name: String
-    init(name: String) { self.name = name }
-}
+
 
 
 
