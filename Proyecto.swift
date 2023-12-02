@@ -71,28 +71,26 @@ class Person {
     var residense: Residense?
 }
 class Residense {
-    var rooms: [Rooms] = []
+    var room: [Rooms] = []
     var numberOfRooms: Int {
-        return rooms.count
-    }
-    subscript(i: Int) -> Room {
-        get {
-            return room[i]
+        subscript(i: Int) -> Room {
+            get {
+                return room[i]
+            }
+            set {
+                room[i] = newValue
+            }
+            func numberOfRooms() {
+                print("El numero de habitaciones es \(numberOfRooms)")
+            }
+            var address: Address?
         }
-        set {
-            room[i] = newValue
-        }
-        var numberOfRooms() {
-            print("El numero de habitaciones es \(numberOfRooms)")
-        }
-        var address: Address
     }
 }
 class Room {
-    var name: String
+    let name: String?
     init(name: String) { self.name = name }
 }
-
 class Address {
     var buildingName: String?
     var buildingNumber: String?
@@ -107,6 +105,84 @@ class Address {
         }
     }
 }
+
+let john = Residense()
+if let roomCout = john.residense?.numberOfRooms {
+    print("La residencia de John tiene \(numberOfRooms) habitaciones")
+} else {
+    print("No se encuentra el numero de habitaciones")
+}
+// Prints "No se encuentra el numero de habitaciones"
+
+let address = someAddress() 
+buildingNumber.someAddress = "29"
+buildingNumber.street = "Arcaica Road"
+john.residense?.address = someAddress
+
+func someAddress() -> Address {
+    print("Funtion was called")
+
+    let someAddress = Address() 
+    someAddress.buildingNumber = "29"
+    someAddress.street = "Acacia Road"
+
+    return someAddress
+}
+john.residense?.address = someAddress() 
+
+func numberOfRooms() {
+    print("La residencia de John tiene \(numberOfRooms) habitaciones")
+}
+if let john.residense?.printNumberOfRooms() != nil {
+    print("It was possible to print the number of rooms")
+} else {
+    print("It was not possible to print the number of rooms.")
+}
+// Prints "It was not possible to print the number of rooms."
+
+if (john.residense?.address = someAddress) != nil {
+    print("It was possible to set the rooms")
+} else {
+    print("It was not possible to set the rooms.")
+}
+// Prints "It was not possible to set the rooms"
+
+if firstRoomName = john.residense?.name {
+    print("The first room name is \(firstRoomName)")
+} else {
+    print("Unable to receive the first room name.")
+}
+// Prints "Unable to receive to receive the first room name."
+
+join.residense[0] = Room(name: "Bathroom")
+joinsHouse.room.append(Room(name: "living Room"))
+joinsHouse.room.append(Room(name: "Kitchen"))
+join.residense = joinsHouse
+
+if let firstRoomName = john.residense?.name {
+    print("The first room name is \(firstRoomName)")
+} else {
+    print("Unable to receive the first room name.")
+}
+// Prints "Unable to receive the first room name."
+
+var testScore = ["Dave": [86, 82, 84], "Bev": [79, 91, 84]]
+textScore["Dave"] = 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
