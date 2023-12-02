@@ -154,20 +154,82 @@ if firstRoomName = john.residense?.name {
 }
 // Prints "Unable to receive to receive the first room name."
 
-join.residense[0] = Room(name: "Bathroom")
-joinsHouse.room.append(Room(name: "living Room"))
-joinsHouse.room.append(Room(name: "Kitchen"))
-join.residense = joinsHouse
+john.residense[0] = Room(name: "Bathroom")
 
-if let firstRoomName = john.residense?.name {
+john.residense[0] = Room(name: "Bathroom")
+
+let joinsHouse = Residense() 
+joinsHouse.room.append(Room(name: "Living Room"))
+joinsHouse.room.append(Room(name: "Kitchen"))
+join.residense = joinsHouse 
+
+if let firstRoomName = john.residense?[0].name {
     print("The first room name is \(firstRoomName)")
 } else {
     print("Unable to receive the first room name.")
 }
 // Prints "Unable to receive the first room name."
 
-var testScore = ["Dave": [86, 82, 84], "Bev": [79, 91, 84]]
-textScore["Dave"] = 
+var testScores = ["Dave": [86, 82, 84], "Bev": [79, 91, 84]]
+testScores["Dave"]?[0] = 91
+testScores["Bev"]?[0] += 1
+testScores["Brian"]?[0] = 71
+// Prints "The Dave array is [91, 82, 84] and the Bev array is [80, 84, 91]"
+
+if let joinHouse = john.residense?.address?.street {
+    print("John's street name is \(joinHouse)")
+} else {
+    print("Unable to receive the address.")
+}
+// Prints "Unable to receive the address."
+
+let johnsAddress = Address() 
+johnsAddress.buildingName = "The Larches"
+johnsAddress.street = "Laurel Street"
+johns.residense?.address = johnsAddress
+
+if let johnsAddress = johns.residense?.address?.street {
+    print("John's address name is \(joinsAddress)")
+} else {
+    print("Unable to receive the address.")
+}
+// Prints "Unable to receive the address."
+
+if let buildingIdentifier = john.residense?.address?.buildingIdentifier() {
+    print("John's building identifier is \(buildingIdentfier)")
+}
+// Prints "John's building identfier is The Larches"
+
+if let beginWithThe = john.residense?.address?.buildingIdentfier()?.hasPrefix("The") {
+    if beginWithThe {
+        print("John's building identifier begin with \"The\".")
+    } else {
+        print("John's building identifier doesn't begin with \"The\".")
+    }
+}
+// Prints "John's building identifier begin with "The"."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
