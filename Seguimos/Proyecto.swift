@@ -209,6 +209,91 @@ if let beginWithThe = john.residense?.address?.buildingIdentfier()?.hasPrefix("T
 }
 // Prints "John's building identifier begin with "The"."
 
+enum VendingMachineError: Error {
+    case invaledSelection
+    case insufficientFunds(coinsNeeded: Int)
+    case outOfStock
+}
+throw VendingMachineError.insufficientFunds(coinsNeeded: 5)
+
+func canThrowsError() throws -> String 
+func cannotThrowsError() -> String 
+
+struct Item {
+    var price: Int 
+    var count: Int 
+}
+class VendingMachine {
+    var inventory = [
+        "Candy Bar": Item(price: 12, count: 7)
+        "Chips": Item(price: 10, count: 4)
+        "Pelzels": Item(price: 7, count: 11)
+    ]
+    coinsDeposited = 0
+
+    func vend(itemNamed name: String) throws {
+        guard let item = inventiry[name] else {
+            throw VendingMachine.invalidSelection
+        }
+        guard item.count > 0 else {
+            throw VendingMachine.outOfStock
+        }
+        guard item.price <= coinsDeposited else {
+            throw VendingMachine.insufficientFunds(coinsNeeded: item.price - coinsDeposited)
+        }
+        coinsDeposited -= item.price 
+
+        var newItem = item 
+        newItem.price -= 1
+        inventory[name] = newItem
+        print("Dispensing \(name)")
+    }
+}
+
+let favoriteSnacks = [
+    "Alice": "Chips"
+    "Bob": "Licorice"
+    "Eve": "Prelzels"
+]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
