@@ -227,12 +227,12 @@ class VendingMachine {
     var inventory = [
         "Candy Bar": Item(price: 12, count: 7)
         "Chips": Item(price: 10, count: 4)
-        "Pelzels": Item(price: 7, count: 11)
+        "Prelzels": Item(price: 7, count: 11)
     ]
     coinsDeposited = 0
 
     func vend(itemNamed name: String) throws {
-        guard let item = inventiry[name] else {
+        guard let item = inventory[name] else {
             throw VendingMachine.invalidSelection
         }
         guard item.count > 0 else {
@@ -244,9 +244,9 @@ class VendingMachine {
         coinsDeposited -= item.price 
 
         var newItem = item 
-        newItem.price -= 1
+        newItem.count -= 1
         inventory[name] = newItem
-        print("Dispensing \(name)")
+        print("Dispensing \(name)") 
     }
 }
 
@@ -255,6 +255,44 @@ let favoriteSnacks = [
     "Bob": "Licorice"
     "Eve": "Prelzels"
 ]
+func buyFavoriteSnacks(person: String, vendingMachine: VendingMachine) throws {
+    let snackName = favoriteSnacks[person] ?? "Cardy Bar"
+    try VendingMachine.vend(itemNamed: snackName)
+}
+
+struct PurchaseSnacks {
+    let name: String
+    init(name: String, vendingMachine: VendingMachine) throws {
+        try VendingMachine.vend(itemNamed: name)
+        self.name = name 
+    }
+}
+
+var vendingMachine = VendingMachine() 
+vendingMachine.coinsDeposited = 8 
+do {
+    try buyFavoriteSnacks(person: "Alice", vendingMachine: VendingMachine) {
+        print("Success!, Yum.")
+    } catch VendingMachineError.invalidSelection {
+        print("Invalid Selection")
+    } catch VendingMachineError.outOfStock {
+        print("Out Of Stock")
+    } catch VendingMachineError.insufficientFunds (let coinsNeeded) {
+        print("Insufficient Funds. Please insert an additional \(coisNeeded) coins.")
+    } catch {
+        print("Unnexpected error: \(error).")
+    }
+}
+// Prints "Insufficient funds. Please insert an additional 2 coins"
+
+
+
+
+
+
+
+
+
 
 
 
