@@ -260,30 +260,34 @@ func buyFavoriteSnacks(person: String, vendingMachine: VendingMachine) throws {
     try VendingMachine.vend(itemNamed: snackName)
 }
 
-struct PurchaseSnacks {
-    let name: String
-    init(name: String, vendingMachine: VendingMachine) throws {
-        try VendingMachine.vend(itemNamed: name)
+struct PurchaseSnack {
+    let name: String 
+    init(name: String, vendingMachine: vendingMachine) {
+        try vendingMachine.vend(iteNamd: name)
         self.name = name 
     }
 }
 
 var vendingMachine = VendingMachine() 
-vendingMachine.coinsDeposited = 8 
+vendingMachine.coinsDeposited = 0
 do {
-    try buyFavoriteSnacks(person: "Alice", vendingMachine: VendingMachine) {
+    try buyFavoriteSnack(person: "Alice", vendingMachine: vendingMachine) {
         print("Success!, Yum.")
     } catch VendingMachineError.invalidSelection {
         print("Invalid Selection")
     } catch VendingMachineError.outOfStock {
-        print("Out Of Stock")
-    } catch VendingMachineError.insufficientFunds (let coinsNeeded) {
-        print("Insufficient Funds. Please insert an additional \(coisNeeded) coins.")
+        print("Out of Stock")
+    } catch VendingMachineError.insufficientFunds(let coinsNeeded) {
+        print("Insufficient funds. Please inssert an additional \(coinsNeeded) coins")
     } catch {
-        print("Unnexpected error: \(error).")
+        print("Unexpexted error: \(error)")
     }
 }
-// Prints "Insufficient funds. Please insert an additional 2 coins"
+// Prints "Insufficient funds. Please inssert an addiotional 2 coins"
+
+
+
+
 
 
 
