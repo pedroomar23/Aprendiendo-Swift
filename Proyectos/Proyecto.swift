@@ -269,7 +269,7 @@ struct PurchaseSnack {
 }
 
 var vendingMachine = VendingMachine() 
-vendingMachine.coinsDeposited = 0
+vendingMachine.coinsDeposited = 8
 do {
     try buyFavoriteSnack(person: "Alice", vendingMachine: vendingMachine) {
         print("Success!, Yum.")
@@ -277,13 +277,42 @@ do {
         print("Invalid Selection")
     } catch VendingMachineError.outOfStock {
         print("Out of Stock")
-    } catch VendingMachineError.insufficientFunds(let coinsNeeded) {
-        print("Insufficient funds. Please inssert an additional \(coinsNeeded) coins")
+    } catch VendingMachineError.insufficientFunds(let coinsNeded) {
+        print("Insufficient Funds, Please inssert an additional \(coinsDeposited) coins")
     } catch {
-        print("Unexpexted error: \(error)")
+        print("Unexpected error: \(error)")
     }
 }
-// Prints "Insufficient funds. Please inssert an addiotional 2 coins"
+// Prints "Insufficient Funds, Please inssert an additional 2 coins."
+
+func nourish(width item: String) throws {
+    do {
+        try VendingMachine.vend(itemNamed: item)
+    } catch is VendingMachineError {
+        print("Couldn't buy that from the vending machine")
+    }
+}
+do {
+    try nourish(width: "Fleet-Flevaded Chips")
+} catch {
+    print("Unexpected non-vending-machine-related-error: \(error)")
+}
+// Prints "Couldn't buy that from the vending machine"
+
+func eat(item: String) throws {
+    do {
+        try VendingMachine.vend(itemNamed: item)
+    } catch VendingMachineError.invalidSelection, VendingMachineError.insufficientFunds, VendingMachineError.outOfStock {
+        print("Invalid selection, out of stock, or not enough money.")
+    }
+}
+
+
+
+
+
+
+
 
 
 
