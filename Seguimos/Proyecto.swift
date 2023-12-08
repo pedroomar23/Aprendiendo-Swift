@@ -303,18 +303,54 @@ func eat(item: String) throws {
     do {
         try VendingMachine.vend(itemNamed: item)
     } catch VendingMachineError.invalidSelection, VendingMachineError.insufficientFunds, VendingMachineError.outOfStock {
-        print("Invalid selection, out of stock, or not enough money.")
+        print("Invalid selection, out of stock, or not enough money")
     }
 }
 
+func someThrowingFuntion() throws -> Int {
+    // ...
+}
+let x = try? someThrowingFuntion()
+let = Int? {
+    do {
+        y = try? someThrowingFuntion()
+    } catch {
+        y = nil
+    }
+}
 
+func fetchData() -> Data {
+    if let data = try? fetchFromDisk() { return data }
+    if let data = try? fetchFromServer() { return data }
+    return data 
+}
 
+let photo = try! loadImage("atPath: /.Resourses/John Applseed.jpg")
 
+func processFile(filename: String) throws {
+    if exists(filename) {
+        defer {
+            close(filename)
+        }
+        while let line = try file.readline() {
+            // Works with the line.
+        }
+        // close(file) is called here, at the end of the scope.
+    }
+}
 
+listPhoto(inGallery: "Summer Vacation") { photo in 
+    let nameSorted = photoNames.sorted() 
+    let name = sortedNames[0] 
+        downloadPhoto.sorted(name: names) { photo in 
+        show(photo) 
+    }
+}
 
-
-
-
+func listPhotos(inGallery name: String) async -> [String] {
+    let result = // ... somme asynchronous networking code ...
+    return result 
+}
 
 
 
