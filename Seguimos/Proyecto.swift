@@ -339,36 +339,57 @@ func processFile(filename: String) throws {
     }
 }
 
-listPhotos(inGallery: "Summer Vacation") { photo in 
+listPhoto(inGallery: "Summer Vacation") { photo in 
     let sortedNames = photoNames.sorted() 
-    let name = sortedNames[0]
+    let name = sortedNames[0] 
     downloadPhoto(named: name) { photo in 
-    show(photo)
+    show(photo) 
     }
 }
 
-func listPhotos(inGallery name: String) async -> [String] {
-    let result = // ... some asynchronous networking code ...
-    return result 
-}
-let photoNames = await listPhotos(inGallery: "Summer Vacation")
-let sortedNames = photoNames.sorted 
-let names = sortedNames[0]
-let photo = await downloadPhoto(named: name)
-show(photo) 
-
-let firstPhoto = await listPhotos(inGallery: "Summer Vacation")[0]
+let firstPhoto = await listPhotos(inGallery: "Summer Vacation")
 add(firstPhoto, toGallery: "Road Trip")
-// At this point, firstPhoto is temporily in bot galleries.
+// At this point, firstPhoto is temporily in both galleries.
 remove(firstPhoto, fromGallery: "Summer Vacation")
 
 func move(_ photoName: String, from source: String, to destination: String) {
-    add(firstPhoto, fromGallery: destination)
+    add(firtPhoto, fromGallery: destination)
     remove(firstPhoto, toGallery: source)
 }
 // ...
 let firstPhoto = await listPhotos(inGallery: "Summer Vacation")[0]
-move(firstPhoto, from: "Summer Vacation", to: "Road Trip")
+move(firstPhoto, from: "Road Trip", to: "Summer Vacation")
+
+func listPhotos(inGallery: "Summer Vacation") async -> [String] {
+    let result = // ... some asynchronous networking code ...
+    return result 
+}
+
+let photoNames = await listPhotos(inGallery: "Summer Vacation")
+let sortedNames = photoNames.sorted() 
+let name = sortedNames[0]
+let photo = await DownloadPhoto(named: name)
+show(photo) 
+
+func listPhotos(inGallery name: String) async throws -> [String] {
+    try await(from: .now + .second(2), clock: .countinuos)
+    return ("IMG001", "IMG99", "IMG404")
+}
+
+import Foundation 
+
+let handle = FileHandle.standardInput 
+for try await line in handle.bytes.line {
+    print(line) 
+}
+
+
+
+
+
+
+
+
 
 
 
